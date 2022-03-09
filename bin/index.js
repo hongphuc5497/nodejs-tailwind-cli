@@ -1,24 +1,25 @@
 #! /usr/bin/env node
 
-const inquirer = require('inquirer');
-const shell = require('shelljs');
+import inquirer from 'inquirer';
+import shell from 'shelljs';
+import chalk from 'chalk';
 const path = process.cwd();
-const { links, questions, questionsTs } = require('./utils');
-console.log(links.get('React'))
+import { links, questions, questionsTs } from './utils/index.js';
 
 inquirer.prompt(questions).then((answers) => {
-  const { framework, projectName } = answers;
-  console.log(framework, projectName)
+	const { framework, projectName } = answers;
 
 	shell.exec(`mkdir ${projectName}`);
-	console.log('📁 Created a folder for the project');
+	console.log(chalk.green('📁 Created a folder for the project'));
 
 	shell.exec(`git clone ${links.get(framework)} ${projectName}`);
-	console.log(`🖨️  Cloned started files into ${projectName}`);
+	console.log(chalk.green(`🖨️  Cloned started files into ${projectName}`));
 
 	shell.cd(`${path}/${projectName}`);
 	shell.exec('npm install');
 	console.log(
-		'👨‍💻  Successfully installed all the required dependencies\nHappy hacking 🚀'
-  );
+		chalk.green(
+			'👨‍💻  Successfully installed all the required dependencies\nHappy hacking 🚀'
+		)
+	);
 });
