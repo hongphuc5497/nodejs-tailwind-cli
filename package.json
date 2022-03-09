@@ -1,0 +1,9 @@
+{
+  "name": "nodejs-tailwind-cli",
+  "version": "1.0.0",
+  "main": "./bin/index.js",
+  "license": "MIT",
+	"bin": {
+		"tcli": "./bin/index.js"
+	}
+}
