@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "./bin/index.js",
   "license": "MIT",
-	"bin": {
-		"tcli": "./bin/index.js"
-	}
+  "bin": {
+    "tcli": "./bin/index.js"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.1"
+  }
 }
